@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhysicsLab — see the math move</title>
+    <meta name="description" content="I built this to see how physics actually works. Explore 36 topics across mechanics, quantum, and black holes, with all the equations typed out right next to the simulations." />
+    <meta name="theme-color" content="#07070c" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:title" content="PhysicsLab — see the math move" />
+    <meta property="og:description" content="36 physics topics where you can actually see the equations in action. No hand-waving, just the math and the simulations together." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts: Hanken Grotesk for UI/headings, Source Serif 4 for long-form
+         reading, JetBrains Mono for equations and data labels. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- KaTeX (loaded via CDN so equations render without a bundler dependency) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

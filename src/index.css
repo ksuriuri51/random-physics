@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Single dark cosmic theme — no light mode. RGB triplets consumed via
+     rgb(var(--x) / <alpha-value>) so Tailwind's opacity modifiers work. */
+  --background: 7 7 12;          /* near-black void */
+  --foreground: 241 236 227;     /* warm starlight off-white */
+  --card: 18 18 28;
+  --card-foreground: 241 236 227;
+  --popover: 18 18 28;
+  --popover-foreground: 241 236 227;
+  --primary: 220 181 95;         /* auric gold */
+  --primary-foreground: 7 7 12;
+  --secondary: 67 56 77;         /* nebula violet-plum */
+  --secondary-foreground: 241 236 227;
+  --muted: 51 56 74;
+  --muted-foreground: 158 164 184;
+  --accent: 60 154 129;          /* verdant emerald */
+  --accent-foreground: 7 7 12;
+  --destructive: 159 37 61;      /* nova red */
+  --destructive-foreground: 241 236 227;
+  --border: 255 255 255;
+  --input: 51 56 74;
+  --ring: 220 181 95;
+  --radius: 0.625rem;
+}
+
+* {
+  font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  position: relative;
+}
+
+/* ---------------------------------------------------------------------
+   Cosmic background: layered nebula-color blobs (CSS) behind a twinkling
+   procedural starfield (canvas, rendered by <CosmicBackground/>). Fixed
+   behind every page so all six routes share the same deep-space backdrop.
+   ------------------------------------------------------------------- */
+.cosmic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, #0d0f1c 0%, #07070c 60%);
+}
+
+.cosmic-bg canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nebula-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(110px);
+  mix-blend-mode: screen;
+}
+
+.nebula-blob.auric {
+  width: 55vmax;
+  height: 55vmax;
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(220, 181, 95, 0.28), transparent 70%);
+  animation: drift 52s ease-in-out infinite alternate;
+}
+
+.nebula-blob.verdant {
+  width: 50vmax;
+  height: 50vmax;
+  bottom: -22%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(60, 154, 129, 0.24), transparent 70%);
+  animation: drift 44s ease-in-out infinite alternate-reverse;
+}
+
+.nebula-blob.nebula {
+  width: 60vmax;
+  height: 60vmax;
+  top: 25%;
+  left: 35%;
+  background: radial-gradient(circle, rgba(99, 90, 107, 0.30), transparent 70%);
+  animation: drift 60s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  100% { transform: translate(-7%, 6%) rotate(12deg) scale(1.08); }
+}
+
+/* Typography roles: sans for UI/headings (Styrene-style), serif for long-form
+   narrative reading (Tiempos-style), mono reserved for equations/data/labels. */
+h1, h2, h3, h4, h5, h6, button, nav, .font-ui {
+  font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-narrative {
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+
+/* KaTeX inherits the site's ink color instead of forcing black, and gets a
+   touch of breathing room so dense equation blocks don't feel cramped. */
+.katex { color: inherit; font-size: 1.05em; }
+.katex-display { margin: 0.5em 0; overflow-x: auto; overflow-y: hidden; }
+
+/* Equation-reveal "typing" cursor */
+.eq-cursor::after {
+  content: '▌';
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--eq-cursor-color, #DCB55F);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes fade-slide-up {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide-up {
+  animation: fade-slide-up 0.35s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* Utility: a subtle starlit card surface used across the maximalist layout
+   (topic blocks, mini-game panels, badges) so panels read as glass over the
+   cosmic backdrop rather than flat blocks. */
+.glass-panel {
+  background: rgba(18, 18, 28, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

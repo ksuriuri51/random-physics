@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="10%" r="80%">
+      <stop offset="0%" stop-color="#14121f"/>
+      <stop offset="60%" stop-color="#07070c"/>
+    </radialGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DCB55F"/>
+      <stop offset="100%" stop-color="#9F253D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="120" r="220" fill="#3C9A81" opacity="0.10"/>
+  <circle cx="150" cy="520" r="260" fill="#635A6B" opacity="0.14"/>
+  <text x="90" y="270" font-family="Georgia, 'Source Serif 4', serif" font-size="120" fill="url(#ink)">&#934;</text>
+  <text x="90" y="360" font-family="Hanken Grotesk, sans-serif" font-weight="700" font-size="58" fill="#F1ECE3">PhysicsLab</text>
+  <text x="90" y="410" font-family="Hanken Grotesk, sans-serif" font-size="28" fill="#9EA4B8">36 topics · 3 volumes · derived live, not asserted</text>
+  <text x="90" y="470" font-family="'JetBrains Mono', monospace" font-size="22" fill="#8C86A0">iħ ∂Ψ/∂t = ĤΨ    Gμν = 8πG/c⁴ Tμν    ψ(x,t)</text>
+</svg>
