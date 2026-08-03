@@ -13,12 +13,7 @@ const changelog = [
     text:
       "A bunch of my canvas components were breaking because they were trying to read colors the wrong way at runtime. It meant things like the double pendulum were just showing up as solid black. I've swapped those out for fixed colors so it won't happen again.",
   },
-  {
-    tag: "added",
-    title: "A real cosmic background",
-    text:
-      "I added a twinkling starfield on a canvas with some shooting stars, all layered under drifting nebula blobs. It's one shared background that follows you across every page of the site.",
-  },
+  
   {
     tag: "added",
     title: "Black Hole Physics, volume 3",
